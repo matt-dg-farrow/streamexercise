@@ -35,9 +35,18 @@ public class Main {
 		double doubles2 = numbers.stream().reduce((num1, num2) -> Math.min(num1, num2)).get();
 		System.out.println(doubles2);
 
-		List<Integer> oddNums = numbers.stream().filter(num -> num % 2 == 0).collect(Collectors.toList());
+		List<Integer> oddNums = numbers.stream().filter(num -> num % 2 == 1).collect(Collectors.toList());
 		System.out.println(oddNums);
 
+		List<Integer> evenNums = numbers.stream().filter(num -> num % 2 == 0).collect(Collectors.toList());
+		System.out.println(evenNums);
+
+		int sum = numbers.stream().reduce((num1, num2) -> num1 + num2).get();
+		System.out.println(sum);
+
+		double dumb = numbers.stream().map(num -> Math.pow(num, 2)).filter(num -> num % 2 == 0)
+				.reduce((num1, num2) -> Math.min(num1, num2)).get();
+		System.out.println(dumb);
 	}
 
 }
